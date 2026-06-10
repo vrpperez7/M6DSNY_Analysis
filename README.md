@@ -87,7 +87,6 @@ streamlit run streamlit_app.py
 * Temporal independence with recent past influence
 * Stationarity achievable via first-order differencing
 * 12-month seasonality exists for districts
-* District autonomy (no spatial correlation)
 
 ---
 
@@ -143,28 +142,17 @@ We fit all three models per district and select the lowest RMSE. District patter
 
 ## Evaluation Metrics
 
-### Example: Bronx District 1
+### Example: Bronx District 5
 
 | Model | RMSE | Selected |
 | --- | --- | --- |
-| Baseline | 0.008 | ✓ |
-| ARIMA(1,1,1) | 0.008 | ✓ |
-| SARIMA(1,1,1)(1,1,1,12) | 9.8% | |
+| Baseline | 0.007 | |
+| ARIMA(1,1,1) | 0.006 | |
+| SARIMA(1,1,1)(1,1,1,12) | 0.003 | ✓ |
 
 ### Metrics
 
 **RMSE**: Penalizes large errors; same units as target  
-
-### Model Selection
-
-* **Tradeoffs**: Baseline/ARIMA tie for stable districts; SARIMA higher error with limited data
-* **Choice**: Adaptive per-district selection ensures optimal local performance
-
-### Diagnostics
-
-* ACF/PACF plots show no significant residual autocorrelation
-* Residuals approximately normal
-* Stationarity achieved via differencing
 
 ---
 
